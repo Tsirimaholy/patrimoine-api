@@ -20,8 +20,8 @@ public class PatrimoineController {
     }
 
     @PutMapping("/{id}")
-    public void savePatrimoine(@PathVariable String id, @RequestBody Patrimoine patrimoine) {
+    public Patrimoine savePatrimoine(@PathVariable String id, @RequestBody Patrimoine patrimoine) {
         patrimoine.setDerniereModification(LocalDateTime.now());
-        patrimoineService.savePatrimoine(id, patrimoine);
+        return patrimoineService.savePatrimoine(id, patrimoine);
     }
 }

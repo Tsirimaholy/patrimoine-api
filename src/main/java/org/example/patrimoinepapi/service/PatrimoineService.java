@@ -37,12 +37,14 @@ public class PatrimoineService {
         return null;
     }
 
-    public void savePatrimoine(String id, Patrimoine patrimoine) {
+    public Patrimoine savePatrimoine(String id, Patrimoine patrimoine) {
         try {
             patrimoine.setDerniereModification(LocalDateTime.now());
             objectMapper.writeValue(new File(DATA_DIR, id + ".json"), patrimoine);
+            return patrimoine;
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
