@@ -25,14 +25,10 @@ public class PatrimoineService {
         }
     }
 
-    public Patrimoine getPatrimoine(String id) {
-        try {
-            File file = new File(DATA_DIR, id + ".json");
-            if (file.exists()) {
-                return objectMapper.readValue(file, Patrimoine.class);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public Patrimoine getPatrimoine(String id) throws IOException {
+        File file = new File(DATA_DIR, id + ".json");
+        if (file.exists()) {
+            return objectMapper.readValue(file, Patrimoine.class);
         }
         return null;
     }
