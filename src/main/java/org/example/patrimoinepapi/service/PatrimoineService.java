@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 @Service
 public class PatrimoineService {
@@ -35,7 +34,6 @@ public class PatrimoineService {
 
     public Patrimoine savePatrimoine(String id, Patrimoine patrimoine) {
         try {
-            patrimoine.setDerniereModification(LocalDateTime.now());
             objectMapper.writeValue(new File(DATA_DIR, id + ".json"), patrimoine);
             return patrimoine;
         } catch (IOException e) {

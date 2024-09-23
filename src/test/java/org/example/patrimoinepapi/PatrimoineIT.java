@@ -47,7 +47,9 @@ public class PatrimoineIT {
     @Test
     public void testGetPatrimoine_ko() throws Exception {
         mockMvc.perform(get("/patrimoines/{id}", "100"))
-                .andExpect(status().isOk());
+                .andExpect(status().isNotFound())
+                .andExpect(content().string(""))
+        ;
     }
 
     @Test
